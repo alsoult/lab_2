@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise_5</title>
+  </head>
+  <body>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      table {
+        margin-top: 50px;
+        margin-left: 50px;
+        border-collapse: collapse;
+        background-color: rgba(210, 210, 217, 70%);
+        color: #313131;
+        border-radius: 0 0 8px 8px;
+        font-family: "Roboto Condensed", sans-serif;
+      }
+      .info {
+        padding: 10px 70px 10px 10px;
+        border-right: 2px solid #a4a4a4;
+      }
+      .values {
+        padding: 10px;
+      }
+      caption {
+        padding: 10px;
+        font-weight: bold;
+        background-color: rgba(210, 210, 217, 70%);
+        border-radius: 8px 8px 0 0;
+        font-size: large;
+      }
+      #info-radians {
+        border-top: 4px solid #a4a4a4;
+        border-bottom: 2px solid #a4a4a4;
+      }
+    </style>
+    <script>
+      let x;
+      do {
+        x = parseFloat(
+          prompt(
+            "Введите x (x > 1) для вычисления значения функции arctg x",
+            ""
+          )
+        );
+      } while (x <= 1 || isNaN(x));
+      let eps;
+      do {
+        eps = parseFloat(prompt("Введите точность", ""));
+      } while (isNaN(eps));
+      let sum = Math.PI / 2;
+      let n = 0;
+      let value;
+      do {
+        value = Math.pow(-1, n + 1) / ((2 * n + 1) * Math.pow(x, 2 * n + 1));
+        sum += value;
+        n++;
+      } while (Math.abs(value) > eps);
+      let sumInDegrees = (sum * 180) / Math.PI;
+      document.write(
+        "<table><caption>Значение функции arctg x</caption><tr id='info-radians'><td class='info'>Радианы</td><td class='values'>",
+        sum.toFixed(5),
+        "</td></tr><tr><td class='info'>Градусы</td><td class='values'>",
+        sumInDegrees.toFixed(5),
+        "</td></tr></table>"
+      );
+    </script>
+  </body>
+</html>

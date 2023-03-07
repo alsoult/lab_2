@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise_2</title>
+  </head>
+  <body>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .lang {
+        margin-top: 50px;
+        margin-left: 50px;
+        padding: 20px;
+        max-width: fit-content;
+        background-color: #26272a;
+        color: #e8e8e8;
+        border-radius: 20px;
+        font-family: "Roboto Condensed", sans-serif;
+        font-weight: bold;
+      }
+    </style>
+    <script>
+      let lang;
+      let tempValue;
+      do {
+        lang = prompt("Введите нужный код языка (ru, en, fr или de)", "");
+        if (lang === "") {
+          tempValue = true;
+        } else if (lang === null) {
+          tempValue = false;
+          document.write('<div class="lang">Нажата кнопка "Отмена"</div>');
+        } else {
+          tempValue = false;
+          try {
+            if (lang == "ru" || lang == "RU" || lang == "Ru") {
+              document.write('<div class="lang">Русский</div>');
+            } else if (lang == "en" || lang == "EN" || lang == "En") {
+              document.write('<div class="lang">Английский</div>');
+            } else if (lang == "fr" || lang == "FR" || lang == "Fr") {
+              document.write('<div class="lang">Французский</div>');
+            } else if (lang == "de" || lang == "DE" || lang == "De") {
+              document.write('<div class="lang">Немецкий</div>');
+            } else {
+              throw new Error("Язык неизвестен!");
+            }
+          } catch (error) {
+            document.write('<div class="lang">' + error.message + "</div>");
+          }
+        }
+      } while (tempValue);
+    </script>
+  </body>
+</html>

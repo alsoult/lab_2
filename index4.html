@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise_4</title>
+  </head>
+  <body>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      table {
+        margin-top: 30px;
+        margin-left: 30px;
+      }
+      .red-numbers {
+        color: red;
+        padding: 5px;
+        text-align: center;
+        font-family: "Roboto Condensed", sans-serif;
+      }
+      .black-numbers {
+        color: black;
+        padding: 5px;
+        text-align: center;
+        font-family: "Roboto Condensed", sans-serif;
+      }
+    </style>
+    <script>
+      let counter = 0;
+      let triangularNumber;
+      let hasTriangularNumber = 0;
+      document.write("<table border='1'>");
+      for (let i = 0; i < 10; i++) {
+        document.write("<tr>");
+        for (let j = 0; j < 10; j++) {
+          counter++;
+          for (let k = 1; k < 14; k++) {
+            triangularNumber = (k * (k + 1)) / 2;
+            if (counter == triangularNumber) {
+              hasTriangularNumber++;
+              break;
+            }
+          }
+          if (hasTriangularNumber != 0) {
+            document.write("<td class='red-numbers'>" + counter + "</td>");
+          } else {
+            document.write("<td class='black-numbers'>" + counter + "</td>");
+          }
+          hasTriangularNumber = 0;
+        }
+        document.write("</tr>");
+      }
+      document.write("</table>");
+    </script>
+  </body>
+</html>
